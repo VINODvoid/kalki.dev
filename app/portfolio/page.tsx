@@ -40,7 +40,7 @@ const items = [
 ];
 
 const PortfolioPage = () => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ target: ref });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);

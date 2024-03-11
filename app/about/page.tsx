@@ -5,15 +5,15 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const AboutPage = () => {
-  const containerRef = useRef();
+  
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ container: containerRef });
 
-  const skillRef = useRef();
-  // const isSkillRefInView = useInView(skillRef, {once:true});
+  const skillRef = useRef<HTMLDivElement>(null);
   const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
 
-  const experienceRef = useRef();
+  const experienceRef = useRef<HTMLDivElement>(null);
   const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
 
   return (

@@ -1,31 +1,38 @@
-"use client";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+
+interface FormData {
+  user_message: string;
+  user_email: string;
+}
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const text = "Say Hello";
 
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
 
+    if (!process.env.NEXT_PUBLIC_SERVICE_ID) {
+      throw new Error('NEXT_PUBLIC_SERVICE_ID is not defined');
+    }
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_TEMPLATE_ID!,
+        form.current!,
+        process.env.NEXT_PUBLIC_PUBLIC_KEY!
       )
       .then(
         () => {
           setSuccess(true);
-          form.current.reset();
+          form.current?.reset();
         },
         () => {
           setError(true);
