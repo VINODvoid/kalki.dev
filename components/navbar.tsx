@@ -85,33 +85,36 @@ const Navbar = () => {
     return (
         <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
             <div className="hidden md:flex gap-4 w-1/3">
-                {
-                    lists.map(link => (
-                        <NavLink link={link} key={link.title} />
-                    ))
-                }
+            {lists.map((link) => (
+            <NavLink link={link} key={link.title} />
+        ))}
             </div>
-            <div className="md:hidden  lg:flex xl:w-1/3 xl:justify-center">
-                <Link href="/" className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center">
-                    <span className="text-white mr-1">Kalki</span>
-                    <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">.Dev</span>
-                </Link>
+            <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
+            <Link
+            href="/"
+            className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
+        >
+            <span className="text-white mr-1">KALKI</span>
+            <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">
+            .dev
+            </span>
+        </Link>
             </div>
             <div className=" hidden md:flex gap-4 w-1/3">
                 <Link href="https://github.com/VINODvoid">
-                    <Image src="/github.png" alt="github" width="24" height="24" />
+                    <Image src="/github.png" alt="github" width={24} height={24} />
                 </Link>
                 <Link href="https://dribbble.com/kalkivoid">
-                    <Image src="/dribble.png" alt="dribble" width="24" height="24" />
+                    <Image src="/dribble.png" alt="dribble" width={24} height={24} />
                 </Link>
                 <Link href="https://www.instagram.com/kalki__kal/">
-                    <Image src="/instagram.png" alt="instagram" width="24" height="24" />
+                    <Image src="/instagram.png" alt="instagram" width={24} height={24} />
                 </Link>
                 <Link href="https://www.linkedin.com/in/kalkikal/">
-                    <Image src="/linkedin.png" alt="linkedin" width="24" height="24" />
+                    <Image src="/linkedin.png" alt="linkedin" width={24} height={24} />
                 </Link>
                 <Link href="https://twitter.com/kalki_kal">
-                    <Image src="/twitter.png" alt="twitter" width="24" height="24" />
+                    <Image src="/twitter.png" alt="twitter" width={24} height={24} />
                 </Link>
 
 
